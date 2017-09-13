@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="newGarden1.css">    
+    <title>newGarden1</title>
+</head>
+<header>
+    <h1>Garden Bot</h1>
+    <div class="nav">
+        <ul>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </div>
+    <br>
+</header>
+
+<body>
+    <form action="/newgarden" method="GET">
+        <h2>Create New Garden</h2>
+        <i class=" inside fa fa-leaf fa-2x" aria-hidden="true"></i>
+        <input class='gardenName'name="gardenName" type="text" placeholder="Garden's name"><br>
+        <div class="plantSel"> 
+            Plant 1: <select name="plant1">
+                        <option>None</option>
+                        <option>Tomato</option>
+                        <option>Potato</option>
+                        <option>Spinach</option>
+                    </select><br> 
+            Plant 2: <select name="plant2">
+                        <option>None</option>
+                        <option>Tomato</option>
+                        <option>Potato</option>
+                        <option>Spinach</option>
+                    </select><br>
+            Plant 3: <select name="plant3">
+                        <option>None</option>
+                        <option>Tomato</option>
+                        <option>Potato</option>
+                        <option>Spinach</option>
+                    </select><br>
+        </div>
+        <input type="submit" value="Commit Plants">
+    </form>
+</body>
+<footer>Copyrights© GardenBot2017</footer>
+
+</html>
