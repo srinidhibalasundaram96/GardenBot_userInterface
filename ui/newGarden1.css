@@ -29,7 +29,7 @@ footer {
 
 .nav ul {
     list-style-type: none;
-    width: 2040px;
+    width: 100%;
     position: absolute;
     top:80px;
     margin:0;
@@ -81,8 +81,7 @@ body{
 }
 
 h2{
-    color:#F73868;
-    text-decoration: underline;
+    color:#91F1F5;
     background: rgba(0, 0, 0, 0.6);
     width:100%;
 }
@@ -129,4 +128,43 @@ select, select option{
  select:hover, select option:hover{
     color:whitesmoke;
     background: rgba(0, 0, 0, 0.8);
+ }
+
+.sbt{
+    font-family: Calibri;  
+    font-size: 20px;
+    height: 30px;
+    text-align: center;
+    width: 200px;
+    background: orange;
+    border-radius: 30px;
+    border: 0px;
+    color:black;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative;
+ }
+ .sbt::before{
+    content:"→";
+    margin:0;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;   
+    font-weight: 800;    
+    padding:0;
+    background: #15E437;
+    position: absolute;
+    color:whitesmoke;
+    top:0px;
+    left:-200px;
+    transition: .3s ease-in-out;
+    border-radius: 30px;
+ }
+ .sbt:hover::before{
+    left:0px;
+ }
+ .sbt:focus::before{
+    left:0px;
+    background: darkgreen;
+
  }
