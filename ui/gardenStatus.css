@@ -67,12 +67,12 @@ footer {
 body{
     margin: 0;
     padding:0;
-    background: url('images/garden2.jpg') no-repeat;
+    background: url('images/garden19.jpg') no-repeat;
     background-size: cover;
     position: relative;
-    top:200px;
+    top:150px;
     left: 550px;
-    color: black;
+    color:darkblue;
     line-height: 50px;
     font-weight: 800;
     text-align: center;
@@ -121,10 +121,47 @@ input[type=range]{
 }
 input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
-    appearance: none;
     background:dodgerblue;
     height:20px;
     width:20px;
     border:none;
     border-radius: 7px;
+}
+#back{
+    height: 40px;
+    width:200px;
+    font-family:calibri;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    border: 0;
+    border-radius: 30px;
+    color:whitesmoke ;
+    font-weight: 800;
+    background: orange;
+    font-size: 20px;  
+    position: relative;
+    left: -550px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+#back::before{
+    content:'⟵';
+    background: lawngreen;
+    height: 40px;
+    width: 200px;
+    font-weight: 800;
+    color:white;
+    border-radius: 30px;
+    line-height: 40px;
+    position: absolute;
+    top:40px;
+    left:0px;
+    transition: .3s;
+}
+#back:hover::before{
+    top:0px;
+}
+#back:focus::before{
+    top:0px;
+    background:green;
 }

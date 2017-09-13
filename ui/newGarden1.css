@@ -71,7 +71,7 @@ body{
     background: url('images/garden12.jpg') no-repeat;
     background-size: cover;
     position: relative;
-    top:180px;
+    top:150px;
     line-height: 50px;
     text-align: center;
     font-family: calibri;
@@ -86,9 +86,10 @@ body{
     background: rgba(0, 0, 0, 0.6);
     border-radius: 25px;
     padding-left:3px;
-    color: white;
+    color: honeydew;
     font-size: 20px;
     text-align: center;
+    margin-bottom: 30px;
 }
 i{
     position: absolute;
@@ -100,7 +101,7 @@ i{
 }
 .gardenName:hover, .gardenName:focus{
     background: rgba(255, 255, 255, 0.6);
-    color: #035575;
+    color: darkviolet;
     font-size: 23px;
  }
  .plantSel{
@@ -136,6 +137,7 @@ select, select option{
     font-weight: 500;
     overflow: hidden;
     position: relative;
+    margin-top: 20px;
  }
  .sbt::before{
     content:"→";
@@ -150,7 +152,7 @@ select, select option{
     color:whitesmoke;
     top:0px;
     left:-200px;
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
     border-radius: 30px;
  }
  .sbt:hover::before{
