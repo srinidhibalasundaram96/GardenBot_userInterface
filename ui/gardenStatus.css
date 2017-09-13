@@ -67,14 +67,16 @@ footer {
 body{
     margin: 0;
     padding:0;
-    background: url('images/garden12.jpg') no-repeat;
+    background: url('images/garden2.jpg') no-repeat;
     background-size: cover;
     position: relative;
     top:200px;
     left: 550px;
+    color: black;
     line-height: 50px;
+    font-weight: 800;
     text-align: center;
-    font-family: calibri;
+    font-family: Cochin;
     letter-spacing: 2px;
     word-spacing: 3px;
     font-size: 20px;
@@ -88,11 +90,41 @@ input[type=text]{
     text-align: center;
     width:100px;
     padding:5px;
+    padding-left: 10px;
     height: 30px;
     border-radius: 15px;
     border:0px;
-    background: rgba(0, 0, 0, 0.6);
+    color:black;
+    background: rgba(255, 255, 255, 0.6);
 }
 #humd{
     margin-left: 35px;
+}
+input[type=datetime-local]{
+    background: rgba(0, 0, 0, 0.5);
+    color:whitesmoke;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width:200px;
+    border-radius: 15px;
+    border:0px;
+    margin-left: 5px;
+}
+
+input[type=range]{
+    -webkit-appearance: none;
+    width:300px;
+    border:0px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.6);
+}
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    background:dodgerblue;
+    height:20px;
+    width:20px;
+    border:none;
+    border-radius: 7px;
 }

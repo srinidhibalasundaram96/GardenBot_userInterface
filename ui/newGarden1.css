@@ -71,7 +71,7 @@ body{
     background: url('images/garden12.jpg') no-repeat;
     background-size: cover;
     position: relative;
-    top:100px;
+    top:180px;
     line-height: 50px;
     text-align: center;
     font-family: calibri;
@@ -79,13 +79,6 @@ body{
     word-spacing: 3px;
     font-size: 20px;
 }
-
-h2{
-    color:#91F1F5;
-    background: rgba(0, 0, 0, 0.6);
-    width:100%;
-}
-
 .gardenName{
     height: 40px;
     width:400px;
@@ -97,15 +90,15 @@ h2{
     font-size: 20px;
     text-align: center;
 }
-.inside{
+i{
     position: absolute;
     text-indent:20px;
-    margin-top: 3px;
+    margin-top: 8px;
     color:#15E437;
     padding-right: 3px;
     line-height: 50px;
 }
-.inside:hover, .gardenName:hover, .gardenName:focus{
+.gardenName:hover, .gardenName:focus{
     background: rgba(255, 255, 255, 0.6);
     color: #035575;
     font-size: 23px;
