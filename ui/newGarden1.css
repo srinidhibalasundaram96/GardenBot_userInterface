@@ -42,7 +42,7 @@ h1 {
     display: block;
     color: lime;
 }
-.nav li a:hover{
+.nav li a:hover, .nav li a:focus{
     background-color: lime;
     opacity: .8;
     color: black;

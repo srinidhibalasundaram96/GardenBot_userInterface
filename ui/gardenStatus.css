@@ -42,7 +42,7 @@ h1 {
     display: block;
     color: lime;
 }
-.nav li a:hover{
+.nav li a:hover, .nav li a:focus{
     background-color: lime;
     opacity: .8;
     color: black;
@@ -115,6 +115,7 @@ input[type=range]::-webkit-slider-thumb{
     color:whitesmoke ;
     font-weight: 800;
     background: orange;
+    cursor: pointer;
     font-size: 20px;  
     position: absolute;
     left: 150px;
