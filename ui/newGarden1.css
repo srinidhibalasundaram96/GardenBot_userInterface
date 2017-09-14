@@ -58,13 +58,16 @@ body,html{
     height: 50px;
     width:400px;
     border:2px solid #E60A1C;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 25px;
     padding-left:3px;
     color: honeydew;
     font-size: 20px;
     text-align: center;
     margin-bottom: 30px;
+}
+input::-webkit-input-placeholder {
+    color:red;
 }
 i{
     position: absolute;
@@ -77,7 +80,7 @@ i{
     line-height: 30px;
 }
 .gardenName:hover, .gardenName:focus{
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.5);
     color: darkviolet;
     font-size: 23px;
  }
