@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="waterSchedule.css">
+    <script src="support.js"></script>
+    <title>Water Schedule|gardenBot</title>
+</head>
+<h1>Create New Garden</h1>
+<div class="nav">
+    <ul>
+        <li><a href="FirstPage.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="aboutus.html">About</a></li>
+    </ul>
+    <div class="h2">Select Your Watering Schedule/plan</div>
+</div>
+<body>
+    <div id="container">
+        <div class="modesList">
+            Select One mode<br>
+            <input type="radio" name="mode" id="auto">Auto<br>
+            <input type="radio" name="mode" id="manual">Manual
+        </div>    
+        <div class="manualSub">
+            <input type="radio" name="Mmode" id="iPlan">Individual care<br>
+            <input type="radio" name="Mmode" id="cPlan">Common care   
+        </div>
+        <div id="Icare">
+            Determine the interval between two wateirng events<br>
+            Plant 1: <input type="number" name="interval1" id="interval1" max="12">hours <br>
+            Plant 2: <input type="number" name="interval2" id="interval2" max="12">hours<br>
+            Plant 3: <input type="number" name="interval3" id="interval3" max="12">hours<br>
+            
+            Amount of time the plant will be watered during the watering event<br>
+            Plant 1: <input type="number" name="eventTime1" id="eventTime1" min="30" max="120">seconds<br>
+            Plant 2: <input type="number" name="eventTime2" id="eventTime2" min="30" max="120">seconds<br>
+            Plant 3: <input type="number" name="eventTime3" id="eventTime3" min="30" max="120">seconds<br>
+             </div>
+        
+        <div id="Ccare">
+            Time Interval between two watering events: <input type="number" name="CInterval" id="CInterval" max="12">hours<br>
+            Duration of the watering event: <input type="number" name="CeventTime" id="CeventTime" min="30" max="120">seconds<br>
+        </div>
+        <div class="Amode">
+            In this mode the watering event will take place according to the soil moisture of your garden<br>
+            Minimum Soil Moisture level: <select name="moistureLevel" id="moistureLevel">
+                <option value="15%">15%</option>
+                <option value="20%">20%</option>
+                <option value="25%">25%</option>
+                <option value="30%">30%</option>                
+            </select>
+        </div>
+    </div>    
+    <button id="finish">Good to Go</button>
+</body>
+<footer>Copyrights© GardenBot2017</footer>
+</html>

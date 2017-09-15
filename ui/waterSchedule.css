@@ -1,0 +1,169 @@
+body,
+html {
+    height: 100%;
+    background: url('images/garden28.jpg') no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+footer {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    color: lime;
+    transition: .4s;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: lime;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+}
+.h2{
+    position: absolute;
+    top:18%;
+    left:35%;
+    text-align: center;
+    color:black;
+    font-family: cursive;
+    font-size: 20px;
+}
+.nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+}
+
+.nav ul li {
+    float: left;
+    background: rgba(0, 0, 0, 0.7);
+    width: 33.33%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: lime;
+}
+
+.nav li a:hover,
+.nav li a:focus {
+    background-color: lime;
+    opacity: .8;
+    color: black;
+}
+#container{
+    display: grid;
+    margin-top:5%;
+    font-size: 22px;
+    grid-template-columns: 1fr 3fr 100px;
+    grid-template-rows: 2fr;
+    grid-gap: 5px;
+    text-align: center;
+    padding: 5px;
+    font-family: cursive;
+}
+.modesList{
+    align-self: center;
+    justify-self: center;
+    color:white;    
+    grid-row-start: 1;
+    grid-row-end: 4;
+    text-align: left;
+    line-height: 30px;
+}
+.manualSub{
+    margin-top: 5%;
+    align-self: center;
+    justify-self: center;
+    color:black;    
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    line-height: 30px;
+    
+}
+#Icare{
+    align-self: center;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color:black;
+}
+#Ccare{
+    visibility: hidden;
+    align-self: center;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color:black;
+    line-height: 40px;
+    font-size: 20px;
+}
+.Amode{
+    visibility: hidden;    
+    align-self: center;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    color:black;
+    line-height: 40px;
+}
+#finish{
+    height: 30px;
+    width:200px;
+    border:none;
+    border-radius: 20px;
+    background:dodgerblue;
+    color: whitesmoke;
+    font-size: 15px;
+    position: absolute;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    margin-top: 15px; 
+    left:43%;
+    overflow: hidden;
+}
+#finish::before{
+    content:'➔';
+    font-size: 20px;
+    position: absolute;
+    left: -200px;
+    top:0;
+    width:200px;
+    height: 30px;
+    border:none;
+    color:white;
+    border-radius: 20px;
+    background: dodgerblue;
+    transition: .4s ease-in-out;
+}
+#finish:hover{
+    color:dodgerblue;
+}
+#finish:hover::before{
+    left:0px;
+}
