@@ -74,6 +74,7 @@ input {
     width: 300px;
     margin-left: 8px;
     margin-bottom: 10px;
+    color:hotpink;
     border: none;
     border-radius: 30px;
     text-align: center;
@@ -132,7 +133,7 @@ button::before {
     border: none;
     border-radius: 30px;
     background: hotpink;
-    color: white
+    color: white;
     -webkit-transition:  .3s ease-in-out;
     -moz-transition:  .3s ease-in-out;
     transition:  .3s ease-in-out;
