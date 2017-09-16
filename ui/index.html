@@ -1,40 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- <style>
 
+    footer {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Times New Roman';
+    color: lime;
+    transition: .4s;
+}
+
+input {
+    background: rgba(0, 0, 0, 0.5);
+    padding-left: 15px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-radius: 25px;
+    padding-left: 5px;
+    color: white;
+    height: 50px;
+    width: 350px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-family: Cambria;
+    box-sizing: border-box;
+    transition: all .3s linear;
+    text-align: center;
+}
+
+input[type=text]:focus {
+    border-color: darkviolet;
+    box-shadow: 0 0 8px 0 darkviolet;
+    background: whitesmoke;
+    opacity: 9;
+    color: darkviolet;
+}
+
+input[type=text]:hover{
+    background: whitesmoke;
+    opacity: .9;
+    color: darkviolet;
+    border-bottom: 3px solid #0C84F5;
+    border-bottom-width: 100%;
+    color: darkviolet;
+}
+
+input[type=password]:focus {
+    border-color: darkviolet;
+    box-shadow: 0 0 8px 0 darkviolet;
+    background: whitesmoke;
+    color: darkviolet;
+    opacity: .9;
+}
+
+input[type=password]:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 3px solid dodgerblue;
+    color: brown;
+}
+
+.indexbody {
+    background:url('images/garden1.jpg')no-repeat;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+}
+.indexcontainer{
+    position: absolute;
+    top:30%;
+    left:35%;
+}
+#wrong{
+    position: absolute;
+    bottom:35%;
+    left: 40%;
+    color:yellow;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+input::-webkit-input-placeholder{
+color: #E727EE;
+text-align: center;
+}
+form {
+    font-family: Cambria;
+    font-size: 22px;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin:0;
+    padding: 0;
+}
+
+.sbt {
+    height: 50px;
+    padding: 6px;
+    width: 300px;
+    left:60px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    color: lime;
+    border: 3px solid;
+    border-color: skyblue;
+    border-radius: 30px;
+}
+
+i {
+    color: honeydew;
+}
+
+.sbt:focus {
+    border-color: darkred;
+    background: green;
+    color: white;
+    box-shadow: 0 0 8px 0 darkred;
+}
+
+.sbt:hover {
+    border-color: darkred;
+    background:lime;
+    color: black;
+}
+
+.navindex ul {
+    list-style-type: none;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+.navindex ul li{
+    width:50%;
+    background: rgba(0, 0, 0, 0.7);     
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+.navindex li a {
+    display: block;
+    text-decoration: none;
+    color: lime;
+}
+.navindex li a:hover, .navindex li a:focus{
+    background: lime;   
+    color: black;
+}
+h1 {
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    color: lime;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+}
+
+.nav ul{
+    list-style: none;
+    margin: 0px; 
+    padding: 0;
+}
+.nav ul li{
+    float: left;
+    background: rgba(0, 0, 0, 0.7);
+    width: 33.33%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+.nav ul li a{
+    text-decoration: none;
+    display: block;
+    color: lime;
+}
+.nav li a:hover, .nav li a:focus{
+    background-color: lime;
+    opacity: .8;
+    color: black;
+}
+
+.firstPageBody{
+    height: 100%;
+    background: url('images/garden21.jpg') no-repeat;
+    background-size: cover;
+}
+
+.firstPgBtn li {
+    width: 100%;
+}
+
+.firstPgBtn button {
+    border-radius: 25px;
+    background-color: rgba(209, 19, 29, 0.7);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+    width: 350px;
+    cursor: pointer;
+    margin: 5px;
+    transition: .3s;
+}
+
+.firstPgBtn button:hover {
+    background-color: rgba(19, 231, 47, 0.7);
+    color: honeydew;
+    border-bottom: 3px solid dodgerblue;
+    text-decoration: underline;
+}
+.buttons{
+    position: absolute;
+    text-align: center;
+    top:30%;
+    left:35%;
+}
+</style> -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GardenBot user interface</title>
-    <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="support.js" ></script>    
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="/ui/style.css">    
+    <script type="text/javascript" src="/ui/support.js" ></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <header>
     <h1>Garden Bot</h1>
     <div class="navindex">
-            <ul>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="aboutus.html">About</a></li>
-            </ul>
+        <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="aboutus.html">About</a></li>
+        </ul>
     </div>
 </header>
-
-<<body class="indexbody">
+<body class="indexbody">
+        <img src="/ui/images/garden1.jpg" alt="">
+    <form action="/loginCredentials" method="post">
     <div class="indexcontainer">
         <div class='userip'>
            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-            <input type="text" name="username" id="userName" placeholder="enter your username">
+            <input type="text" name="userName" id="userName" placeholder="enter your username" autocomplete="off">
         </div>
         <div class="pwd">
             <i class="fa fa-key fa-lg" aria-hidden="true"></i>
-            <input type="password" name="pwd" id="password" placeholder="enter your password"><br>
+            <input type="password" name="password" id="password" placeholder="enter your password"><br>
         </div>
         <div class='login'>
             <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-            <input class="sbt" type="button" value="Login" onclick="validate();">
+            <button class="sbt" type="submit" onclick="validate();">Login </button>
         </div>
     </div>
+    </form> 
     <div id="wrong">Username or password is incorrect!</div>
 </body>
 <footer>Copyrights© GardenBot2017</footer>

@@ -5,25 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="gridLayout.css">
-    <script type="text/javascript" src="support.js" ></script>    
+    <link rel="stylesheet" href="/ui/gridLayout.css">
+    <script type="text/javascript" src="/ui/support.js" ></script>    
     <title>Garden Layout</title>
 </head>
 <h1>Create New Garden-Layout</h1>
 <div class="nav">
     <ul>
-        <li><a href="FirstPage.html">Home</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="aboutus.html">About</a></li>
+        <li><a href="/ui/FirstPage.html">Home</a></li>
+        <li><a href="/ui/contact.html">Contact</a></li>
+        <li><a href="/ui/aboutus.html">About</a></li>
     </ul>
 </div>
 
 <body>
     <div class="h2">Design your Garden's layout<br>
+        <form action="gardenGrids" method="POST">
         This is how your garden's layout will be splitted into grids</div>
     <div class="gardenGrid">
         <div class="plant1">
-            <select id="G1">
+            <select name="G1"id="G1">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -31,7 +32,7 @@
             </select><br>
         </div>
         <div class="plant2">
-            <select id="G2">
+            <select name="G2"id="G2">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -39,7 +40,7 @@
             </select><br>
         </div>
         <div class="plant3">
-            <select id="G3">
+            <select name="G3"id="G3">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -47,7 +48,7 @@
             </select><br>
         </div>
         <div class="plant4">
-            <select id="G4">
+            <select name="G4"id="G4">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -55,7 +56,7 @@
             </select><br>
         </div>
         <div class="plant5">
-            <select id="G5">
+            <select name="G5"id="G5">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -63,7 +64,7 @@
             </select><br>
         </div>
         <div class="plant6">
-            <select id="G6">
+            <select name="G6"id="G6">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -71,7 +72,7 @@
             </select><br>
         </div>
         <div class="plant7">
-            <select id="G7">
+            <select name="G7"id="G7">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -79,7 +80,7 @@
             </select><br>
         </div>
         <div class="plant8">
-            <select id="G8">
+            <select name="G8"id="G8">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -87,7 +88,7 @@
             </select><br>
         </div>
         <div class="plant9">
-            <select id="G9">
+            <select name="G9"id="G9">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -95,7 +96,7 @@
             </select><br>
         </div>
         <div class="plant10">
-            <select id="G10">
+            <select name="G10"id="G10">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -103,7 +104,7 @@
             </select><br>
         </div>
         <div class="plant11">
-            <select id="G11">
+            <select name="G11"id="G11">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -111,7 +112,7 @@
             </select><br>
         </div>
         <div class="plant12">
-            <select id="G12">
+            <select name="G12"id="G12">
                 <option value="none">None</option>
                 <option value="tomato">Tomato</option>
                 <option value="potato">Potato</option>
@@ -119,9 +120,8 @@
             </select><br>
         </div>
     </div>
-    <button id="GridsOK" onclick="waterPage();">Looks Great</button>
-   
-    <button ></button>
+    <button type="submit" id="GridsOK" onclick="waterPage();">Looks Great</button>
+</form>
 </body>
 <footer>Copyrights© GardenBot2017</footer>
 

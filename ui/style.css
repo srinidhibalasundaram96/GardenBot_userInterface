@@ -63,17 +63,26 @@ input[type=password]:hover {
     border-bottom: 3px solid dodgerblue;
     color: brown;
 }
-
-form {
-    position: absolute;
-    top: 250px;
-    left: 450px;
-    color: honeydew
-}
-
-.indexbody {
-    background:url('images/garden1.jpg')no-repeat;
+/* img{
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    background-attachment: fixed;
+    top:0;
+    right: 0;
+    min-width:100%;
+} */
+/* img #fp{
+    margin: 0;
+    padding: 0;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    z-index: -1;
+    visibility: hidden;
+} */
+.indexbody {
+     background:url('/ui/images/garden1.jpg')no-repeat; 
     margin: 0px;
     padding: 0px;
 }
@@ -145,6 +154,7 @@ i {
     width: 100%;
     margin:0;
     padding: 0;
+    z-index: 2;
 }
 .navindex ul li{
     width:50%;
@@ -201,9 +211,10 @@ h1 {
 }
 
 .firstPageBody{
-    height: 100%;
-    background: url('images/garden21.jpg') no-repeat;
+    background: url('/ui/images/garden21.jpg') no-repeat;
     background-size: cover;
+    margin:0;
+    padding:0;
 }
 
 .firstPgBtn li {

@@ -1,7 +1,7 @@
 function validate(){
     var userName = document.getElementById('userName').value;
     var password = document.getElementById('password').value;
-    if(userName === "hello" && password === "world"){
+    if(userName === "hello" && password === "hello"){
         window.open("FirstPage.html","_self");
     }
     else {
@@ -79,10 +79,12 @@ function waterPage(){
     window.open('waterSchedule.html',"_self");
     console.log(G1, G2, G3);
 }
+
 var mode; var moistureLevel; var subManual; 
 var subManual; var Cinterval; var CeventTime;
 var interval1; var interval2; var interval3;
 var eventTime1; var eventTime2; var eventTime3;
+
 function contactServer(){
     if(A_M ==="auto"){
         mode = "auto";
@@ -113,15 +115,17 @@ function contactServer(){
     console.log(eventTime1);
     console.log(CeventTime);
     window.open("FirstPage.html","_self");
+    location.href='http://192.234.12.4'+"?"+"mode="+mode+"&"+"moistureLevel="+moistureLevel;
 }
 var queryUser;
 var querymail;
 var querystatement;
+
 function contact(){
-    queryUser = document.getElementById('Cname').value;
-    querymail = document.getElementById('Cemail').value;
-    querystatement = document.getElementById('query').value;
-    console.log(queryUser);
-    console.log(querymail);
-    console.log(querystatement);
+//     queryUser = document.getElementById('Cname').value;
+//     querymail = document.getElementById('Cemail').value;
+//     querystatement = document.getElementById('query').value;
+//     console.log(queryUser);
+//     console.log(querymail);
+//     console.log(querystatement);    
 }

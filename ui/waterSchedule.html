@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="waterSchedule.css">
-    <script type="text/javascript" src="support.js" ></script>
+    <!-- <link rel="stylesheet" href="waterSchedule.css"> -->
+    <link rel="stylesheet" href="/ui/waterSchedule.css">    
+    <script type="text/javascript" src="/ui/support.js" ></script>
     <title>Water Schedule|gardenBot</title>
 </head>
 <h1>Create New Garden</h1>
 <div class="nav">
     <ul>
-        <li><a href="FirstPage.html">Home</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="aboutus.html">About</a></li>
+        <li><a href="/ui/FirstPage.html">Home</a></li>
+        <li><a href="/ui/contact.html">Contact</a></li>
+        <li><a href="/ui/aboutus.html">About</a></li>
     </ul>
     <div class="h2">Select Your Watering Schedule/plan</div>
 </div>
 <body>
+    <form action="/waterschedule" method="post">
     <div id="container">
         <div class="modesList">
             Select One mode<br>
-            <input type="radio" name="mode" id="auto" onclick="showAuto();"/>Auto<br>
-            <input type="radio" name="mode" id="manual" onclick="showSub();"/>Manual
+            <input type="radio" name="mode" id="auto" onclick="showAuto();" value="auto"/>Auto<br>
+            <input type="radio" name="mode" id="manual" onclick="showSub();" value="manual"/>Manual
         </div>    
         <div class="manualSub" id="manualSub" >
-            <input type="radio" name="Mmode" id="iPlan" onclick="showIcare();"/>Individual care<br>
-            <input type="radio" name="Mmode" id="cPlan" onclick="showCcare();"/>Common care   
+            <input type="radio" name="Mmode" id="iPlan" onclick="showIcare();" value="individualCare"/>Individual care<br>
+            <input type="radio" name="Mmode" id="cPlan" onclick="showCcare();" value="commonCare"/>Common care   
         </div>
         <div class="Icare" id="Icare" >
             Determine the interval between two wateirng events<br>
@@ -54,7 +56,8 @@
             </select>
         </div>
     </div>        
-    <button id="finish" onclick="contactServer();">Let's Garden</button>
+    <button id="finish" type="submit" onclick="contactServer();">Let's Garden</button>
+    </form>
 </body>
 <footer>Copyrights© GardenBot2017</footer>
 </html>

@@ -50,7 +50,7 @@ h1 {
 body,html{
     margin: 0;
     padding:0;
-    background: url('images/garden19.jpg') no-repeat;
+    background: url('/ui/images/garden19.jpg') no-repeat;
     background-size: cover;
     height: 100%;
 }

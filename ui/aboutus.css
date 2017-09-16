@@ -1,7 +1,9 @@
 body,
 html {
+    margin:0;
+    padding:0;
     height: 100%;
-    background: url('images/garden22.jpg') no-repeat;
+    background: url('/ui/images/garden22.jpg') no-repeat;
     background-size: cover;
     height: 100%;
 }

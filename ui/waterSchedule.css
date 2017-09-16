@@ -1,8 +1,10 @@
 
 body,
 html {
+    margin:0;
+    padding: 0;
     height: 100%;
-    background: url('images/garden28.jpg') no-repeat;
+    background: url('/ui/images/garden28.jpg') no-repeat;
     background-size: cover;
     height: 100%;
 }
