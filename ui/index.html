@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GardenBot user interface</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="support.js" ></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <header>
@@ -20,14 +21,14 @@
 </header>
 
 <<body class="indexbody">
-    <form action="/loginCredentials" method="post">
+    <form action="LoginValidation" method="post">
         <div class='userip'>
            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
-            <input type="text" name="username" placeholder="enter your username">
+            <input type="text" name="username" id="userName" placeholder="enter your username">
         </div>
         <div class="pwd">
             <i class="fa fa-key fa-lg" aria-hidden="true"></i>
-            <input type="password" name="pwd" placeholder="enter your password"><br>
+            <input type="password" name="pwd" id="password" placeholder="enter your password"><br>
         </div>
         <div class='login'>
             <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>

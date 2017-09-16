@@ -1,3 +1,4 @@
+
 body,
 html {
     height: 100%;
@@ -89,10 +90,11 @@ h1 {
     line-height: 30px;
 }
 .manualSub{
+    visibility:hidden;
     margin-top: 5%;
     align-self: center;
     justify-self: center;
-    color:black;    
+    color:white;    
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 2;
@@ -100,36 +102,37 @@ h1 {
     line-height: 30px;
     
 }
-#Icare{
+.Icare{
+  visibility:hidden;
     align-self: center;
     justify-self: center;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    color:black;
+    color:white;
 }
-#Ccare{
-    visibility: hidden;
+.Ccare{
+  visibility:hidden;
     align-self: center;
     justify-self: center;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    color:black;
+    color:white;
     line-height: 40px;
     font-size: 20px;
 }
 .Amode{
-    visibility: hidden;    
+  visibility:hidden;
     align-self: center;
     justify-self: center;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    color:black;
+    color:white;
     line-height: 40px;
 }
 #finish{
@@ -166,4 +169,27 @@ h1 {
 }
 #finish:hover::before{
     left:0px;
+}
+input[type='number']{
+    height: 20px;
+    width:60px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color:whitesmoke;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.7)
+}
+select, select option{
+    height:40px;
+    font-size: 15px;
+    width:100px;
+    text-align: center;
+    border:none;
+    background:rgba(0, 0, 0, 0.4);
+    padding:10px;
+    font-weight: bold;
+    color: honeydew;
+    border-radius: 20px;
+    opacity:1;
 }

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
     <link rel="stylesheet" href="newGarden1.css">    
+    <script type="text/javascript" src="support.js"></script>
     <title>newGarden1</title>
 </head>
 <header>
@@ -21,31 +22,29 @@
 </header>
 
 <body>
-    <form action=http://192.352.12.5 method="GET" target="_">
         <div class="plantSel"> 
             <i class=" inside fa fa-leaf fa-2x" aria-hidden="true"></i>
-            <input class='gardenName'name="gardenName" type="text" placeholder="Garden's name" autocomplete="off"><br>
-            Plant 1: <select name="plant1">
-                        <option>None</option>
-                        <option>Tomato</option>
-                        <option>Potato</option>
-                        <option>Spinach</option>
+            <input class='gardenName'id="gardenName" type="text" placeholder="Garden's name" autocomplete="off" required><br>
+            Plant 1: <select id="plant1">
+                        <option value="none">None</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="potato">Potato</option>
+                        <option value="spinach">Spinach</option>
                     </select><br> 
-            Plant 2: <select name="plant2">
-                        <option>None</option>
-                        <option>Tomato</option>
-                        <option>Potato</option>
-                        <option>Spinach</option>
+            Plant 2: <select id="plant2">
+                        <option value="none">None</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="potato">Potato</option>
+                        <option value="spinach">Spinach</option> 
                     </select><br>
-            Plant 3: <select name="plant3">
-                        <option>None</option>
-                        <option>Tomato</option>
-                        <option>Potato</option>
-                        <option>Spinach</option>
+            Plant 3: <select id="plant3">
+                        <option value="none">None</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="potato">Potato</option>
+                        <option value="spinach">Spinach</option>
                     </select><br>
-                    <button class="sbt" >Commit plants</button>
+                    <button class="sbt" onclick="gridPage();" >Commit plants</button>
         </div>
-    </form>
 </body>
 <footer>Copyrights© GardenBot2017</footer>
 
