@@ -1,3 +1,16 @@
+function validate(){
+    var userName = document.getElementById('userName').value;
+    var password = document.getElementById('password').value;
+    if(userName === "hello" && password === "world"){
+        window.open("FirstPage.html","_self");
+    }
+    else {
+        document.getElementById('wrong').style.visibility="visible";
+        document.getElementById('userName').value = '';
+        document.getElementById('password').value= '';        
+    }
+}
+
 var A_M = '';
 var I_C = '';
 function showAuto(){
@@ -32,12 +45,14 @@ var gardenName;
 var plant1;
 var plant2;
 var plant3;
+
 function gridPage(){
     gardenName = document.getElementById('gardenName').value;
     plant1 = document.getElementById('plant1').value;
     plant2 = document.getElementById('plant2').value;
     plant3 = document.getElementById('plant3').value;
     window.open('gridLayout.html',"_self");
+    if(gardenName === ''){location.reload();}
     console.log(plant1 , plant2, plant3);
     console.log(gardenName);
 }
@@ -47,6 +62,7 @@ var G3;var G9 ;
 var G4;var G10;
 var G5;var G11;
 var G6;var G12;
+
 function waterPage(){
     G1 = document.getElementById('G1').value;
     G2 = document.getElementById('G2').value;
@@ -98,4 +114,14 @@ function contactServer(){
     console.log(CeventTime);
     window.open("FirstPage.html","_self");
 }
-
+var queryUser;
+var querymail;
+var querystatement;
+function contact(){
+    queryUser = document.getElementById('Cname').value;
+    querymail = document.getElementById('Cemail').value;
+    querystatement = document.getElementById('query').value;
+    console.log(queryUser);
+    console.log(querymail);
+    console.log(querystatement);
+}

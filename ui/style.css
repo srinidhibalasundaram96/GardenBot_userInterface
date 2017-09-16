@@ -30,6 +30,7 @@ input {
     font-family: Cambria;
     box-sizing: border-box;
     transition: all .3s linear;
+    text-align: center;
 }
 
 input[type=text]:focus {
@@ -38,13 +39,11 @@ input[type=text]:focus {
     background: whitesmoke;
     opacity: 9;
     color: darkviolet;
-    padding-left: 40px;
 }
 
 input[type=text]:hover{
     background: whitesmoke;
-    opacity: 9;
-    padding-left: 40px;
+    opacity: .9;
     color: darkviolet;
     border-bottom: 3px solid #0C84F5;
     border-bottom-width: 100%;
@@ -56,12 +55,10 @@ input[type=password]:focus {
     box-shadow: 0 0 8px 0 darkviolet;
     background: whitesmoke;
     color: darkviolet;
-    opacity: 9;
-    padding-left: 40px;
+    opacity: .9;
 }
 
 input[type=password]:hover {
-    padding-left: 40px;
     background: rgba(255, 255, 255, 0.9);
     border-bottom: 3px solid dodgerblue;
     color: brown;
@@ -80,8 +77,23 @@ form {
     margin: 0px;
     padding: 0px;
 }
+.indexcontainer{
+    position: absolute;
+    top:30%;
+    left:35%;
+}
+#wrong{
+    position: absolute;
+    bottom:35%;
+    left: 40%;
+    color:yellow;
+    font-size: 20px;
+    visibility: hidden;
+}
+
 input::-webkit-input-placeholder{
-color: white;
+color: #E727EE;
+text-align: center;
 }
 form {
     font-family: Cambria;

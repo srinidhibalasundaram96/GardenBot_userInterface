@@ -21,7 +21,7 @@
 </header>
 
 <<body class="indexbody">
-    <form action="LoginValidation" method="post">
+    <div class="indexcontainer">
         <div class='userip'>
            <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
             <input type="text" name="username" id="userName" placeholder="enter your username">
@@ -32,9 +32,10 @@
         </div>
         <div class='login'>
             <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-            <input class="sbt" type="submit" value="Login">
+            <input class="sbt" type="button" value="Login" onclick="validate();">
         </div>
-    </form>
+    </div>
+    <div id="wrong">Username or password is incorrect!</div>
 </body>
 <footer>Copyrights© GardenBot2017</footer>
 

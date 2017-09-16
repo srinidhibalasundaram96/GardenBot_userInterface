@@ -61,7 +61,7 @@ h1 {
     color: black;
 }
 
-form {
+.qContainer{
     position: relative;
     top: 15%;
     text-align: center;
