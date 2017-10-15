@@ -82,7 +82,8 @@ input[type=password]:hover {
     visibility: hidden;
 } */
 .indexbody {
-     background:url('/ui/images/garden1.jpg')no-repeat; 
+     background:url('/ui/images/garden25.jpg')no-repeat; 
+     background-size: cover;
     margin: 0px;
     padding: 0px;
 }

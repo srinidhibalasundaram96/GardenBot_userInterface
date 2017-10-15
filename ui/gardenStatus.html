@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/ui/gardenStatus.css">  
+    <link rel="stylesheet" href="/ui/gardenStatus.css">
+    <script type="text/javascript" src="/ui/support.js" ></script>  
     <title>Garden_Status</title>
-</head>
+</head> 
 <header>
     <h1>Garden Status</h1>
     <div class="nav">
@@ -17,13 +18,13 @@
        </ul>
    </div>
 
-<body>
+<body onload=getStatus();>
     <div class="content">
-        Temperature: <input id=temp type="text" disabled> <br>
-        Humidity:   <input id=humd  type="text" disabled> <br>
-        Soil Moisture:<input id="soilM" type="text" disabled> <br>   
+        Temperature: <input id=temp type="number" disabled> <br>
+        Humidity:   <input id=humd  type="number" disabled> <br>
+        Soil Moisture:<input id="soilM" type="number" disabled> <br>   
         Tank's Water Level: <input id="Wlevel" type="range" class="slider" min="0" max="100" step="10" disabled> <br>
-        Last upadated Time:<input id="upTime"  type="datetime-local" disabled> <br>
+        <!-- Last upadated Time:<input id="upTime"  type="datetime"  disabled> <br> -->
         <button id="back" type="button" onclick=location.href="FirstPage.html">Go Back</button>
     </div>
 </body>

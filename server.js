@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var bodyParser = require('body-parser')
+var request = require('request');
 
 var app = express();
 app.use(morgan('combined'));
@@ -21,7 +22,7 @@ app.get('/', function (req, res) {
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
-app.get('/ui/images/garden1.jpg', function (req, res) {
+app.get('/ui/images/garden25.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'images/garden1.jpg'));
 });
 
@@ -160,11 +161,20 @@ app.post('/waterschedule', function(req,res){
   var CeventTime = req.body.CeventTime;
   var moistureLevel = req.body.moistureLevel;
   console.log(mode, Mmode, Cinterval, CeventTime);  
-  // res.sendFile(path.join(__dirname,'ui','waterSchedule.html'));  
-  res.send(200);  
+  var url = 'http://192.168.4.1/HELLO';
+  var que = '?'+mode +'&'+Mmode+'.';
+  res.sendFile(path.join(__dirname,'ui','waterSchedule.html'));  
 });
-
-
-
+app.get('/statusData',function(req,res){
+  var statusNow={
+    "temp" : 56,
+    "humd" : 45,
+    "soilM": 80,
+    "Wlevel": 80,
+    // "upTime": "2000-08-05"
+  };
+  console.log("request for status");
+  res.send(JSON.stringify(statusNow));
+});
 
 
