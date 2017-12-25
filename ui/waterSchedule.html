@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,28 +23,28 @@
     <div id="container">
         <div class="modesList">
             Select One mode<br>
-            <input type="radio" name="mode" id="auto" onclick="showAuto();" value="auto"/>Auto<br>
+            <input type="radio" name="mode" id="auto" onclick="showAuto();" value="A"/>Auto<br>
             <input type="radio" name="mode" id="manual" onclick="showSub();" value="manual"/>Manual
         </div>    
         <div class="manualSub" id="manualSub" >
-            <input type="radio" name="Mmode" id="iPlan" onclick="showIcare();" value="individualCare"/>Individual care<br>
-            <input type="radio" name="Mmode" id="cPlan" onclick="showCcare();" value="commonCare"/>Common care   
+            <input type="radio" name="Mmode" id="iPlan" onclick="showIcare();" value="I"/>Individual care<br>
+            <input type="radio" name="Mmode" id="cPlan" onclick="showCcare();" value="C"/>Common care   
         </div>
         <div class="Icare" id="Icare" >
             Determine the interval between two wateirng events<br>
-            Plant 1: <input type="number" name="interval1" id="interval1" min='1' max="12" value="2">hours <br>
-            Plant 2: <input type="number" name="interval2" id="interval2" min='1' max="12" value="2">hours<br>
-            Plant 3: <input type="number" name="interval3" id="interval3" min='1' max="12" value="2">hours<br>
+            Plant 1: <input type="number" name="interval1" id="interval1" min='1' max="8" value="2">hours <br>
+            Plant 2: <input type="number" name="interval2" id="interval2" min='1' max="8" value="2">hours<br>
+            Plant 3: <input type="number" name="interval3" id="interval3" min='1' max="8" value="2">hours<br>
             
             Amount of time the plant will be watered during the watering event<br>
-            Plant 1: <input type="number" name="eventTime1" id="eventTime1" min="30" max="120" value="30">seconds<br>
-            Plant 2: <input type="number" name="eventTime2" id="eventTime2" min="30" max="120" value="30">seconds<br>
-            Plant 3: <input type="number" name="eventTime3" id="eventTime3" min="30" max="120" value="30">seconds<br>
+            Plant 1: <input type="number" name="eventTime1" id="eventTime1" min="30" max="120" step="30" value="30">seconds<br>
+            Plant 2: <input type="number" name="eventTime2" id="eventTime2" min="30" max="120" step="30" value="30">seconds<br>
+            Plant 3: <input type="number" name="eventTime3" id="eventTime3" min="30" max="120" step="30" value="30">seconds<br>
              </div>
         
         <div class="Ccare" id="Ccare" >
-            Time Interval between two watering events: <input type="number" name="Cinterval" id="Cinterval" max="12" value='2'>hours<br>
-            Duration of the watering event: <input type="number" name="CeventTime" id="CeventTime" min="30" max="120" value='30'>seconds<br>
+            Time Interval between two watering events: <input type="number" name="Cinterval" id="Cinterval" max="8" value='2'>hours<br>
+            Duration of the watering event: <input type="number" name="CeventTime" id="CeventTime" min="30" max="120" step="30"  value='30'>seconds<br>
         </div>
         <div class="Amode" id="Amode" >
             In this mode the watering event will take place according to the soil moisture of your garden<br>
@@ -52,7 +52,8 @@
                 <option value="15%">15%</option>
                 <option value="20%">20%</option>
                 <option value="25%">25%</option>
-                <option value="30%">30%</option>                
+                <option value="30%">30%</option>
+                <option value="35%">35%</option>                 
             </select>
         </div>
     </div>        

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://uzebox.org/wiki/ESP8266_AT_Commands -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>ESP8266 AT Commands - Uzebox Wiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"ESP8266_AT_Commands","wgTitle":"ESP8266 AT Commands","wgCurRevisionId":3856,"wgRevisionId":3856,"wgArticleId":1037,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"ESP8266_AT_Commands","wgRelevantArticleId":1037,"wgRequestId":"Wb4gfEinvgEAACy9cGcAAABD","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user.cssprefs":"ready","user":"ready","user.options":"loading","user.tokens":"loading","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@05kwjwn",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="./ESP8266 AT Commands - Uzebox Wiki_files/load.php">
+<script async="" src="./ESP8266 AT Commands - Uzebox Wiki_files/load(1).php"></script>
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4c59a6;color:#fff}.suggestions-special .special-label{color:#808080;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c0c0c0}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba( 255,255,255,0.5 );border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4AZWRA3AYURQArxrVHtW2bdu2bdu2zdi2bdu2bWxs7zeehZaw4f70kbs+zI3e/nWK+RWx3aOFlrL56Sy5SxrruG69hlv6OyK+mz+8KDSXdXembj0ispT7tjs4ZTIbpYBvxGSGKzZTeFrb7W/meN002swFs0U8ttpHTkF2BvCqWQrW35929bTsKm5Zb+SEwWwcY8wAngB9m7Z+d+rIPZ/npdy12M5p47n8dXsCYAf0qPy06eGMdktuDu9Qf+JmKl3SWM91qzVcN9tAbEYkwMaq0tyb1m/To5kP170el/BK8/qa6sJr70ydf+T/Uu5ab+Oo/lS0AkUBpIFWlZ9WPhxpse/PHO7YbOOczjL0vZV2lNxPPtG73dYXM+xvm2znrOl83tidoqCwMBgYXsPFB0on5S6pr+eK5TKuW67lgvaKvF8mL1dtfTL32FHxRdyx3cQpg7m4x9sCXKkTIzA4LDH44zWdzaUf71hv5rTG4uyzcusybxSX7aThbMQ8XgCYAp3rzTTQOiIh9PNlzY3FSuZxrzjme1Y7uGS6kjsWO4jPjM4FVjRZsvD4kO9XtTZzQn82NyzWc0B7AmZh6gA/hOYSGhfw9YbOVnarj+S7800AL2BIsxUAbWNToj7bhBuQmZcOsFdoKUC74rGheCwXmqAIQTc9jQcrADIAAAAASUVORK5CYII=);background-image:url(/wiki/resources/src/mediawiki.action/images/green-checkmark.png?d94f1)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:#000;text-shadow:0 0.0625em 0 #fff;text-decoration:none;opacity:0.2;filter:alpha( opacity=20 )}.postedit-close:hover{color:#000;text-decoration:none;opacity:0.4;filter:alpha( opacity=40 )}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><style>
+table.jquery-tablesorter th.headerSort{background-image:url(/wiki/resources/src/jquery/images/sort_both.png?8b01b);background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2021%209%22%20height%3D%229%22%20width%3D%2221%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14.5%205l-4%204-4-4zM14.5%204l-4-4-4%204z%22%2F%3E%0A%3C%2Fsvg%3E%0A);background-image:linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_both.svg?f75b8)!ie;background-image:-o-linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_both.png?8b01b);cursor:pointer;background-repeat:no-repeat;background-position:center right;padding-right:21px}table.jquery-tablesorter th.headerSortUp{background-image:url(/wiki/resources/src/jquery/images/sort_up.png?76242);background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2021%204%22%20height%3D%224%22%20width%3D%2221%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M6.5%204l4-4%204%204z%22%2F%3E%0A%3C%2Fsvg%3E%0A);background-image:linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_up.svg?6bcc2)!ie;background-image:-o-linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_up.png?76242)}table.jquery-tablesorter th.headerSortDown{background-image:url(/wiki/resources/src/jquery/images/sort_down.png?3f399);background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2021%204%22%20height%3D%224%22%20width%3D%2221%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M14.5%200l-4%204-4-4z%22%2F%3E%0A%3C%2Fsvg%3E%0A);background-image:linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_down.svg?05d87)!ie;background-image:-o-linear-gradient(transparent,transparent),url(/wiki/resources/src/jquery/images/sort_down.png?3f399)}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./ESP8266 AT Commands - Uzebox Wiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.28.2">
+<link rel="shortcut icon" href="http://uzebox.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://uzebox.org/wiki/opensearch_desc.php" title="Uzebox Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://uzebox.org/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Uzebox Wiki Atom feed" href="http://uzebox.org/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script src="./ESP8266 AT Commands - Uzebox Wiki_files/load(3).php"></script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-ESP8266_AT_Commands rootpage-ESP8266_AT_Commands skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">ESP8266 AT Commands</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Uzebox Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="http://uzebox.org/wiki/ESP8266_AT_Commands#mw-head">navigation</a>, 					<a href="http://uzebox.org/wiki/ESP8266_AT_Commands#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This table contains all the AT commands for the official ESP8266 firmware used by Uzenet(x.xx.xxx). Responses are described for operations success/operation failure/bad AT format, in that order.
+</p><p>Most up to date command listing can be found <a rel="nofollow" class="external text" href="https://github.com/espressif/esp8266_at/wiki">here</a>.
+</p>
+<table border="1" style="border:1px solid black" class="wikitable sortable jquery-tablesorter">
+<thead><tr>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Commands
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Description
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Type
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Set/Execute
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Inquiry
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Test
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Parameters
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Examples
+</th>
+<th scope="col" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending"> Response
+</th></tr></thead><tbody>
+<tr>
+<td>AT+RST</td>
+<td>restart the module</td>
+<td>basic</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+GMR</td>
+<td>get firmware version</td>
+<td>basic</td>
+<td>AT+GMR</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>0018000902-AI03
+</td></tr>
+<tr>
+<td>AT+CIOBAUD</td>
+<td>set module baud rate</td>
+<td>basic</td>
+<td>AT+CIOBAUD=&lt;baud rate&gt;</td>
+<td>AT+CIOBAUD?</td>
+<td>-</td>
+<td>Baud rate. Factory value is 9600. Set to 57600 for Uzebox.</td>
+<td>AT+CIOBAUD=57600</td>
+<td>BAUD-&gt;57600 OK, then garbage since the module has switched to the new baud rate.
+</td></tr>
+<tr>
+<td>AT+CWQAP</td>
+<td>quit the AP</td>
+<td>wifi</td>
+<td>AT+CWQAP</td>
+<td>-</td>
+<td>AT+CWQAP=?</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CWLAP</td>
+<td>list available APs</td>
+<td>wifi</td>
+<td>AT+CWLAP</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CWSAP</td>
+<td>set wifi login credentials</td>
+<td>wifi</td>
+<td>AT+ CWSAP= &lt;ssid&gt;,&lt;pwd&gt;,&lt;chl&gt;, &lt;ecn&gt;</td>
+<td>AT+ CWSAP?</td>
+<td>-</td>
+<td>ssid, pwd, chl = channel, ecn = encryption</td>
+<td>Connect to your router: AT+CWJAP="YOURSSID","YOURPASSWORD"; and check if connected: AT+CWJAP?</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CWJAP</td>
+<td>join the AP</td>
+<td>wifi</td>
+<td>AT+ CWJAP =&lt;ssid&gt;,&lt; pwd &gt;</td>
+<td>AT+ CWJAP?</td>
+<td>-</td>
+<td>AT+CWJAP="WifiName","WifiPass" MAX 64 bytes long</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CWMODE</td>
+<td>wifi mode</td>
+<td>wifi</td>
+<td>AT+CWMODE=&lt;mode&gt;</td>
+<td>AT+CWMODE?</td>
+<td>AT+CWMODE=?</td>
+<td>1= Sta, 2= AP, 3=both</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPSTART</td>
+<td>start a TCP or UDP connection</td>
+<td>TCP/IP</td>
+<td>1)single connection (+CIPMUX=0) AT+CIPSTART= &lt;type&gt;,&lt;addr&gt;,&lt;port&gt;; 2) multiple connection (+CIPMUX=1) AT+CIPSTART= &lt;id&gt;&lt;type&gt;,&lt;addr&gt;, &lt;port&gt;</td>
+<td>-</td>
+<td>AT+CIPSTART=?</td>
+<td>id = 0-4, type = TCP/UDP, addr = IP address, port= port</td>
+<td>Connect to another TCP server, set multiple connection first: AT+CIPMUX=1; connect: AT+CIPSTART=4,"TCP","X1.X2.X3.X4",9999</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPSEND</td>
+<td>send data over connection(id)</td>
+<td>TCP/IP</td>
+<td>1)single connection(+CIPMUX=0) AT+CIPSEND=&lt;length&gt;; 2) multiple connection (+CIPMUX=1) AT+CIPSEND= &lt;id&gt;,&lt;length&gt;</td>
+<td>-</td>
+<td>AT+CIPSEND=?</td>
+<td>-</td>
+<td>send data: AT+CIPSEND=4,15 and then enter the data MAX 2048 bytes</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPCLOSE</td>
+<td>close connection(id)</td>
+<td>TCP/IP</td>
+<td>AT+CIPCLOSE=&lt;id&gt; or AT+CIPCLOSE</td>
+<td>-</td>
+<td>AT+CIPCLOSE=?</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIFSR</td>
+<td>list the local IP address</td>
+<td>TCP/IP</td>
+<td>AT+CIFSR</td>
+<td>-</td>
+<td>AT+ CIFSR=?</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPSTATUS</td>
+<td>get the connection status</td>
+<td>TCP/IP</td>
+<td>AT+ CIPSTATUS</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPSERVER</td>
+<td>set as server/listen()</td>
+<td>TCP/IP</td>
+<td>AT+ CIPSERVER= &lt;mode&gt;[,&lt;port&gt; ]</td>
+<td>-</td>
+<td>-</td>
+<td>	mode 0 to close server mode, mode 1 to open; port = port</td>
+<td>turn on as a TCP server: AT+CIPSERVER=1,8888, check the self server IP address: AT+CIFSR=?</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPMUX</td>
+<td>set multiple connections mode</td>
+<td>TCP/IP</td>
+<td>AT+ CIPMUX=&lt;mode&gt;</td>
+<td>AT+ CIPMUX?</td>
+<td>-</td>
+<td>0 for single connection 1 for mutiple connection</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CWLIF</td>
+<td>get IP's of devices connected to AP</td>
+<td>TCP/IP</td>
+<td>AT+CWLIF</td>
+<td>-</td>
+<td>-</td>
+<td>returns ip addresses of all devices connected to softAP(module as AP or STA+AP)</td>
+<td>-</td>
+<td>-
+</td></tr>
+<tr>
+<td>AT+CIPSTO</td>
+<td>set server timeout(listen wait time)</td>
+<td>TCP/IP</td>
+<td>AT+CIPSTO=&lt;timeout&gt;</td>
+<td>AT+CIPSTRO?</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic query response:"+CIPSTO:&lt;timeout&gt;
+</td></tr>
+<tr>
+<td>AT+CIPUPDATE</td>
+<td>update firmware over network</td>
+<td>TCP/IP</td>
+<td>AT+CIPUPDATE</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic response:"+CIPUPDATE:&lt;version found&gt;1\n2\n3\n4\n
+</td></tr>
+<tr>
+<td>AT+GSLP</td>
+<td>put module into deep sleep</td>
+<td>basic</td>
+<td>AT+GSLP=&lt;millisecs&gt;</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>module will sleep and wake up after &lt;millisecs&gt; milliseconds, not all versions pins are setup for this.
+</td></tr>
+<tr>
+<td>AT+CIPSTAMAC</td>
+<td>set MAC address of STAtion</td>
+<td>wifi</td>
+<td>AT+CIPSTAMAC=&lt;mac&gt;</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic query response:+CIPSTAMAC:&lt;mac&gt;, ex:AT+CIPSTAMAC="18:aa:35:97:d4:7b"
+</td></tr>
+<tr>
+<td>AT+CIPAPMAC</td>
+<td>set MAC address of softAP</td>
+<td>wifi</td>
+<td>AT+CIPAPMAC=&lt;mac&gt;</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic query response:+CIPAPMAC:&lt;mac&gt;, ex:AT+CIPSTAMAC="18:aa:35:97:d4:7b"
+</td></tr>
+<tr>
+<td>AT+CIPSTA</td>
+<td>set IP address of STAtion</td>
+<td>wifi</td>
+<td>AT+CIPSTA=&lt;ip&gt;</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic query response:+CIPSTA:&lt;ip&gt;, ex:AT+CIPSTA="192.168.101.108"
+</td></tr>
+<tr>
+<td>AT+CIPAP</td>
+<td>set IP address of softAP</td>
+<td>wifi</td>
+<td>AT+CIPAP=&lt;ip&gt;</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>automatic query response:+CIPAP:&lt;ip&gt;, ex:AT+CIPAP="192.168.101.108"
+</td></tr>
+<tr>
+<td>  +IPD</td>
+<td>received packet header, received data follows</td>
+<td>basic</td>
+<td>receive only</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>"+IPD,x,y:recv_bytes\r\n" where x is the connection it's from and y is the number of bytes
+</td></tr>
+</tbody><tfoot></tfoot></table>
+
+<!-- 
+NewPP limit report
+Cached time: 20170917065401
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.018 seconds
+Real time usage: 0.030 seconds
+Preprocessor visited node count: 1/1000000
+Preprocessor generated node count: 4/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 1/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key i3774408_mw1-mw_:pcache:idhash:1037-0!*!*!*!*!*!* and timestamp 20170917065401 and revision id 3856
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;oldid=3856">http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;oldid=3856</a>"					</div>
+				<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="http://uzebox.org/wiki/index.php?title=Special:UserLogin&amp;returnto=ESP8266+AT+Commands" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li><li id="pt-createaccount"><a href="http://uzebox.org/wiki/Special:RequestAccount" title="You are encouraged to create an account and log in; however, it is not mandatory">Request account</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="http://uzebox.org/wiki/ESP8266_AT_Commands" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk" class="new"><span><a href="http://uzebox.org/wiki/index.php?title=Talk:ESP8266_AT_Commands&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0">
+							<span>Variants</span><a href="http://uzebox.org/wiki/ESP8266_AT_Commands#" tabindex="-1"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://uzebox.org/wiki/ESP8266_AT_Commands">Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible" style="display: block;"><span><a href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0" style=""><span>More</span><a href="http://uzebox.org/wiki/ESP8266_AT_Commands#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="http://uzebox.org/wiki/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search Uzebox Wiki" title="Search Uzebox Wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://uzebox.org/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage-description"><a href="http://uzebox.org/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main page</a></li><li id="n-recentchanges"><a href="http://uzebox.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="http://uzebox.org/wiki/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li><li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="http://uzebox.org/wiki/Special:WhatLinksHere/ESP8266_AT_Commands" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="http://uzebox.org/wiki/Special:RecentChangesLinked/ESP8266_AT_Commands" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="http://uzebox.org/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;oldid=3856" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="http://uzebox.org/wiki/index.php?title=ESP8266_AT_Commands&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 18 March 2015, at 00:27.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://uzebox.org/wiki/My_wiki:Privacy_policy" title="My wiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://uzebox.org/wiki/My_wiki:About" title="My wiki:About">About Uzebox Wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://uzebox.org/wiki/My_wiki:General_disclaimer" title="My wiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="http://www.mediawiki.org/"><img src="./ESP8266 AT Commands - Uzebox Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.load(["mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":223});});</script>
+	
+
+<span style="border-radius: 3px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased;">Save</span><span style="width: 24px; height: 24px; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; border-radius: 12px;"></span><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

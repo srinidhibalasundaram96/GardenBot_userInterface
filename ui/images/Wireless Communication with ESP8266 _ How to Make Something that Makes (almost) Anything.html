@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+  	
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Wireless Communication with ESP8266 | How to Make Something that Makes (almost) Anything</title>
+
+
+
+
+    
+
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="style-code-css" href="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/style(1).css" type="text/css" media="all">
+<script async="" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/analytics.js.download"></script><script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/external-tracking.min.js.download"></script>
+
+ 
+
+<link rel="next" title="Twist-on Join" href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/twist-on-join/">
+
+<link rel="canonical" href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/esp8266/">
+<link rel="shortlink" href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/?p=283">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<!-- Google Analytics Tracking by Google Analyticator 6.4.8: http://www.videousermanuals.com/google-analyticator/ -->
+<script type="text/javascript">
+    var analyticsFileTypes = [''];
+    var analyticsSnippet = 'disabled';
+    var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-54692825-2', 'auto');
+ 
+	ga('send', 'pageview');
+</script>
+<link rel="stylesheet" type="text/css" href="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/prettify.css"></head>
+
+  <body class="single single-post postid-283 single-format-standard">
+
+ 	<!-- logo and navigation -->
+
+ <nav id="site-navigation" class="main-nav" role="navigation">
+    <div id="main-nav-wrapper">
+                <div id="logo">
+            <a href="http://pixedge.com/" class="name">Dan Chen</a>
+
+
+
+                    
+
+              
+
+         </div>
+                    <div class="menu-menu-1-container"><ul id="menu-menu-1" class="menu"><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/index.html">Home</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="http://fab.cba.mit.edu/classes/865.15/index.html">Course Site</a></li>
+<li id="menu-item-22" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-22"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/#">Assignments</a>
+<ul class="sub-menu">
+	<li id="menu-item-1" class="menu-item menu-item-type-post_type menu-item-object-post current-post-parent menu-item-1"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/capability-application/">Capability &amp; Application</a></li>
+	<li id="menu-item-64" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-64"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/self-reproduction/">Self-Reproduction</a></li>
+	<li id="menu-item-85" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-85"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/materials/">Materials</a></li>
+	<li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-128"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/mechanisms/">Mechanisms</a></li>
+	<li id="menu-item-162" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-162"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/motion/">Motion</a></li>
+	<li id="menu-item-197" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-197"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/manipulation-processes/">Manipulation &amp; Processes</a></li>
+	<li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-238"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/closed-loop-control-system/">Closed-Loop Control System</a></li>
+	<li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-257"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/measurement/">Measurement</a></li>
+	<li id="menu-item-283" class="menu-item menu-item-type-post_type menu-item-object-post current-menu-item menu-item-283"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/esp8266/">Wireless Communication with ESP8266</a></li>
+	<li id="menu-item-314" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-314"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/twist-on-join/">Twist-on Join</a></li>
+	<li id="menu-item-356" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-356"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/capacitive-pressure-sensing/">Compact Capacitive Pressure Sensing</a></li>
+	<li id="menu-item-375" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-375"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/reconfigurable-modular-robot/">Reconfigurable Modular Robot</a></li>
+	<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-403"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/linear-gripper/">Linear Gripper</a></li>
+	<li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-418"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/modular-robot-sushi-roboto/">Modular Robot – Fully Assembled</a></li>
+</ul>
+</li>
+</ul></div>          
+    </div>
+  <select><option selected="selected" value="">Select Page</option><option value="../index.html">Home</option><option value="http://fab.cba.mit.edu/classes/865.15/index.html">Course Site</option><option value="#">Assignments</option><option value="../capability-application/">––Capability &amp; Application</option><option value="../self-reproduction/">––Self-Reproduction</option><option value="../materials/">––Materials</option><option value="../mechanisms/">––Mechanisms</option><option value="../motion/">––Motion</option><option value="../manipulation-processes/">––Manipulation &amp; Processes</option><option value="../closed-loop-control-system/">––Closed-Loop Control System</option><option value="../measurement/">––Measurement</option><option value="../esp8266/">––Wireless Communication with ESP8266</option><option value="../twist-on-join/">––Twist-on Join</option><option value="../capacitive-pressure-sensing/">––Compact Capacitive Pressure Sensing</option><option value="../reconfigurable-modular-robot/">––Reconfigurable Modular Robot</option><option value="../linear-gripper/">––Linear Gripper</option><option value="../modular-robot-sushi-roboto/">––Modular Robot – Fully Assembled</option></select></nav>
+<div class="clear"></div>
+<div id="wrap">
+  <div id="header"></div>
+
+	     
+       
+   		<div id="post-283" class="post-283 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+  <div class="pinbin-image"><img width="750" height="422" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/DSC02042-copy-750x422.jpg" class="attachment-detail-image wp-post-image" alt="DSC02042 copy"></div>
+  <div class="pinbin-category"><!--<p><a href="category/uncategorized/" rel="category tag">Uncategorized</a></p>--></div>
+      <div class="post-nav">
+          <div class="post-prev"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/measurement/" rel="prev">←</a></div>
+          <div class="post-next"><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/twist-on-join/" rel="next">→</a></div>
+      </div>  
+            <div class="pinbin-copy">
+                <h1>Wireless Communication with ESP8266</h1>
+                 <p class="pinbin-meta">By Dan Chen, April 17, 2015</p>
+           		 <h2>Demo</h2>
+<p><iframe width="630" height="354" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/bt56-ROpv6o.html" frameborder="0" allowfullscreen=""></iframe></p>
+<p>Here are the steps that I took to get my robot up and running with&nbsp;ESP8266</p>
+<ol>
+<li><strong>Connect ESP8266-03 to FTDI or an Arduino to talk to it via Serial at 9600 Bud Rate using AT command</strong><br>
+Tip:&nbsp;Make sure you use good 3.3V power Source</li>
+<li><strong>Making &nbsp;ESP8266 as an access point, send get request with Google Chrome</strong><br>
+Tip: Get IP with AT command<br>
+Get request looks like this http://192.168.4.1/?s=100<br>
+Keep it short<br>
+Will not work in Safari&nbsp;if you don’t have the right HTML header</li>
+<li><strong>Have ESP8266 connected to an WiFi router</strong><br>
+Note: This is slower than WiFi access point mode</li>
+<li><strong>Blink LED then Add Servo</strong><br>
+Note: Software Serial will cause servo twitching, it’s best to just use hardware serial. Hardware serial in arduino code is Serial1.begin instead of Serial.begin() if you are using the arduino IDE</li>
+<li><strong>Making a ESP8266 and A-Star / Arduino Leo combine board<br>
+</strong>I used inDesign, overlay the lines right on top of the image</li>
+<li><strong>Design a Web Interface to control the Robot<br>
+</strong>I used Jquery library to do the get request and animation.</li>
+<li><strong>Try TCP and UDP</strong><br>
+Pending …</li>
+</ol>
+<p><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/wp-content/uploads/2015/04/Archive.zip">Download All ESP8266 related sample Code</a></p>
+<h2></h2>
+<h2>Setup&nbsp;ESP8266 via serial with AT Command</h2>
+<p>Bud rate forESP8266-03 is 9600</p>
+<p>You can use the Arduino IDE to motor the serial. You can use hardware serial or software serial. It might be easier to get started with FTDI, but I started with Software serial using Arduino’s Pin 10 and Pin 11.</p>
+<p>Note: Use Serial1.begin()l if you are using Arduino LEO’s D1 &amp; D0 as hardware serial. For everything else use Serial.begin()…</p>
+<p><img class="alignnone size-full wp-image-298" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/ftdi_pinout.png" alt="ftdi_pinout" width="368" height="142"></p>
+<p>There are no spaces between the Command and the Parameters.</p>
+<p>Source:&nbsp;https://nurdspace.nl/ESP8266#AT_Commands</p>
+<table class="wikitable sortable jquery-tablesorter">
+<thead>
+<tr>
+<th class="headerSort" tabindex="0" title="Sort ascending">Commands</th>
+<th class="headerSort" tabindex="0" title="Sort ascending">Description</th>
+<th class="headerSort" tabindex="0" title="Sort ascending">Set/Execute</th>
+<th class="headerSort" tabindex="0" title="Sort ascending">Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT+RST</td>
+<td>restart the module</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>AT+CWMODE</td>
+<td>wifi mode</td>
+<td>AT+CWMODE=&lt;mode&gt;</td>
+<td>1= Sta, 2= AP, 3=both</td>
+</tr>
+<tr>
+<td>AT+CWJAP</td>
+<td>join the AP</td>
+<td>AT+ CWJAP =&lt;ssid&gt;,&lt; pwd &gt;</td>
+<td>ssid = ssid, pwd = wifi password</td>
+</tr>
+<tr>
+<td>AT+CWLAP</td>
+<td>list the AP</td>
+<td>AT+CWLAP</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+CWQAP</td>
+<td>quit the AP</td>
+<td>AT+CWQAP</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+ CWSAP</td>
+<td>set the parameters of AP</td>
+<td>AT+ CWSAP= &lt;ssid&gt;,&lt;pwd&gt;,&lt;chl&gt;, &lt;ecn&gt;</td>
+<td>ssid, pwd, chl = channel, ecn = encryption</td>
+</tr>
+<tr>
+<td>AT+ CIPSTATUS</td>
+<td>get the connection status</td>
+<td>AT+ CIPSTATUS</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+CIPSTART</td>
+<td>set up TCP or UDP connection</td>
+<td>1)single connection (+CIPMUX=0) AT+CIPSTART= &lt;type&gt;,&lt;addr&gt;,&lt;port&gt;; 2) multiple connection (+CIPMUX=1) AT+CIPSTART= &lt;id&gt;&lt;type&gt;,&lt;addr&gt;, &lt;port&gt;</td>
+<td>id = 0-4, type = TCP/UDP, addr = IP address, port= port</td>
+</tr>
+<tr>
+<td>AT+CIPSEND</td>
+<td>send data</td>
+<td>1)single connection(+CIPMUX=0) AT+CIPSEND=&lt;length&gt;; 2) multiple connection (+CIPMUX=1) AT+CIPSEND= &lt;id&gt;,&lt;length&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+CIPCLOSE</td>
+<td>close TCP or UDP connection</td>
+<td>AT+CIPCLOSE=&lt;id&gt; or AT+CIPCLOSE</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+CIFSR</td>
+<td>Get IP address</td>
+<td>AT+CIFSR</td>
+<td></td>
+</tr>
+<tr>
+<td>AT+ CIPMUX</td>
+<td>set mutiple connection</td>
+<td>AT+ CIPMUX=&lt;mode&gt;</td>
+<td>0 for single connection 1 for mutiple connection</td>
+</tr>
+<tr>
+<td>AT+ CIPSERVER</td>
+<td>set as server</td>
+<td>AT+ CIPSERVER= &lt;mode&gt;[,&lt;port&gt; ]</td>
+<td>mode 0 to close server mode, mode 1 to open; port = port</td>
+</tr>
+<tr>
+<td>+IPD</td>
+<td>received data</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+<tfoot></tfoot>
+</table>
+<h2></h2>
+<h2>Running a WebServer</h2>
+<p>AT+CIPMUX=1<br>
+AT+CIPSERVER=1,80</p>
+<p>From this step, I get the IP address for the chip and started to play with the URL get request<br>
+http://192.168.4.1/?p=34&amp;s=1</p>
+<pre class="prettyprint prettyprinted" style=""><span class="lit">7</span><span class="pun">&amp;</span><span class="pln">s</span><span class="pun">=</span><span class="lit">1</span><span class="pln"> HTTP</span><span class="pun">/</span><span class="lit">1.1</span><span class="pln">
+</span><span class="typ">Host</span><span class="pun">:</span><span class="pln"> </span><span class="lit">192.168</span><span class="pun">.</span><span class="lit">4.1</span><span class="pln">
+</span><span class="typ">Connection</span><span class="pun">:</span><span class="pln"> kAT</span><span class="pun">+</span><span class="pln">CIPSEND</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="lit">1</span><span class="pln">
+</span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">8</span><span class="pln">
+SEND OK
+AT</span><span class="pun">+</span><span class="pln">CIPCLOSE</span><span class="pun">=</span><span class="lit">1</span><span class="pln">
+
+</span><span class="typ">Link</span><span class="pln">
+
+</span><span class="pun">+</span><span class="pln">IPD</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">329</span><span class="pun">:</span><span class="pln">GET </span><span class="pun">/</span><span class="pln">favicon</span><span class="pun">.</span><span class="pln">ico HTTP</span><span class="pun">/</span><span class="lit">1.1</span><span class="pln">
+</span><span class="typ">Host</span><span class="pun">:</span><span class="pln"> </span><span class="lit">192.168</span><span class="pun">.</span><span class="lit">4.1</span><span class="pln">
+</span><span class="typ">Connection</span><span class="pun">:</span><span class="pln"> keep</span><span class="pun">-</span><span class="pln">alive
+</span><span class="typ">User</span><span class="pun">-</span><span class="typ">Agent</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Mozilla</span><span class="pun">/</span><span class="lit">5.0</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Macintosh</span><span class="pun">;</span><span class="pln"> </span><span class="typ">Intel</span><span class="pln"> </span><span class="typ">Mac</span><span class="pln"> OS X </span><span class="lit">10</span><span class="pln">_10_3</span><span class="pun">)</span><span class="pln"> </span><span class="typ">AppleWebKit</span><span class="pun">/</span><span class="lit">537.36</span><span class="pln"> </span><span class="pun">(</span><span class="pln">KHTML</span><span class="pun">,</span><span class="pln"> like </span><span class="typ">Gecko</span><span class="pun">)</span><span class="pln"> </span><span class="typ">Chrome</span><span class="pun">/</span><span class="lit">42.0</span><span class="pun">.</span><span class="lit">2311.90</span><span class="pln"> </span><span class="typ">Safari</span><span class="pun">/</span><span class="lit">537.36</span><span class="pln">
+</span><span class="typ">Accept</span><span class="pun">:</span><span class="pln"> </span><span class="pun">*</span><span class="com">/*
+Referer: http://192.168.4.1/?p=87&amp;s=1
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: en-US,en;q=0.8
+
+
+OK
+
+OK
+</span></pre>
+<h2>Control LED</h2>
+<p>I based my sketch on the following URL<br>
+<a href="http://allaboutee.com/2015/01/02/esp8266-arduino-led-control-from-webpage/">http://allaboutee.com/2015/01/02/esp8266-arduino-led-control-from-webpage/</a></p>
+<pre class="prettyprint prettyprinted" style=""><span class="com">#define</span><span class="pln"> DEBUG </span><span class="kwd">false</span><span class="pln">  </span><span class="com">// turn debug message on or off in serial</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> setup</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+</span><span class="typ">Serial1</span><span class="pun">.</span><span class="kwd">begin</span><span class="pun">(</span><span class="lit">9600</span><span class="pun">);</span><span class="pln">  </span><span class="com">// using serial 1 if you are using arduino LEO</span><span class="pln">
+</span><span class="typ">Serial</span><span class="pun">.</span><span class="kwd">begin</span><span class="pun">(</span><span class="lit">9600</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">while</span><span class="pln"> </span><span class="pun">(!</span><span class="typ">Serial1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+</span><span class="pun">;</span><span class="pln"> </span><span class="com">// wait for serial port to connect. Needed for Leonardo only</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+delay</span><span class="pun">(</span><span class="lit">2000</span><span class="pun">);</span><span class="pln">
+
+pinMode</span><span class="pun">(</span><span class="lit">13</span><span class="pun">,</span><span class="pln">OUTPUT</span><span class="pun">);</span><span class="pln">
+digitalWrite</span><span class="pun">(</span><span class="lit">13</span><span class="pun">,</span><span class="pln">LOW</span><span class="pun">);</span><span class="pln">
+
+sendData</span><span class="pun">(</span><span class="str">"AT+RST\r\n"</span><span class="pun">,</span><span class="lit">2000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// reset module</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="str">"AT+CWMODE=2\r\n"</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// configure as access point</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="str">"AT+CIFSR\r\n"</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get ip address //192.168.4.1</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="str">"AT+CIPMUX=1\r\n"</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// configure for multiple connections</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="str">"AT+CIPSERVER=1,80\r\n"</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// turn on server on port 80</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> loop</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">available</span><span class="pun">())</span><span class="pln"> </span><span class="com">// check if the esp is sending a message</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">"+IPD,"</span><span class="pun">))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+delay</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln"> </span><span class="com">// wait for the serial buffer to fill up (read all the serial data)</span><span class="pln">
+</span><span class="com">// get the connection id so that we can then disconnect</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> connectionId </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">;</span><span class="pln"> </span><span class="com">// subtract 48 because the read() function returns</span><span class="pln">
+</span><span class="com">// the ASCII decimal value and 0 (the first decimal number) starts at 48</span><span class="pln">
+
+</span><span class="com">// on your browser type http://192.168.4.1/?pin=13</span><span class="pln">
+
+</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">"pin="</span><span class="pun">);</span><span class="pln"> </span><span class="com">// advance cursor to "pin="</span><span class="pln">
+
+</span><span class="com">// get 3 digits</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> pinNumber </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">)*</span><span class="lit">100</span><span class="pun">;</span><span class="pln"> </span><span class="com">//</span><span class="pln">
+pinNumber </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">)*</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> </span><span class="com">// get first number i.e. if the pin 13 then the 1st number is 1, then multiply to get 10</span><span class="pln">
+pinNumber </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get second number, i.e. if the pin number is 13 then the 2nd number is 3, then add to the first number</span><span class="pln">
+
+digitalWrite</span><span class="pun">(</span><span class="pln">pinNumber</span><span class="pun">,</span><span class="pln"> </span><span class="pun">!</span><span class="pln">digitalRead</span><span class="pun">(</span><span class="pln">pinNumber</span><span class="pun">));</span><span class="pln"> </span><span class="com">// toggle pin</span><span class="pln">
+
+</span><span class="com">// generate web page</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> webpage </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="pln">pinNumber</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> cipSend </span><span class="pun">=</span><span class="pln"> </span><span class="str">"AT+CIPSEND="</span><span class="pun">;</span><span class="pln">
+cipSend </span><span class="pun">+=</span><span class="pln"> connectionId</span><span class="pun">;</span><span class="pln">
+cipSend </span><span class="pun">+=</span><span class="pln"> </span><span class="str">","</span><span class="pun">;</span><span class="pln">
+cipSend </span><span class="pun">+=</span><span class="pln">webpage</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln">
+cipSend </span><span class="pun">+=</span><span class="str">"\r\n"</span><span class="pun">;</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="pln">cipSend</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln">
+sendData</span><span class="pun">(</span><span class="pln">webpage</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">// make close command</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> closeCommand </span><span class="pun">=</span><span class="pln"> </span><span class="str">"AT+CIPCLOSE="</span><span class="pun">;</span><span class="pln">
+closeCommand</span><span class="pun">+=</span><span class="pln">connectionId</span><span class="pun">;</span><span class="pln"> </span><span class="com">// append connection id</span><span class="pln">
+closeCommand</span><span class="pun">+=</span><span class="str">"\r\n"</span><span class="pun">;</span><span class="pln">
+
+sendData</span><span class="pun">(</span><span class="pln">closeCommand</span><span class="pun">,</span><span class="lit">1000</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// close connection</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">/*
+* Name: sendData
+* Description: Function used to send data to ESP8266.
+* Params: command - the data/command to send; timeout - the time to wait for a response; debug - print to Serial window?(true = yes, false = no)
+* Returns: The response from the esp8266 (if there is a reponse)
+*/</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> sendData</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> command</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> timeout</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> debug</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> response </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+
+</span><span class="typ">Serial1</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">command</span><span class="pun">);</span><span class="pln"> </span><span class="com">// send the read character to the esp8266</span><span class="pln">
+
+</span><span class="kwd">long</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> time </span><span class="pun">=</span><span class="pln"> millis</span><span class="pun">();</span><span class="pln">
+
+</span><span class="kwd">while</span><span class="pun">(</span><span class="pln"> </span><span class="pun">(</span><span class="pln">time</span><span class="pun">+</span><span class="pln">timeout</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> millis</span><span class="pun">())</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">while</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">available</span><span class="pun">())</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+
+</span><span class="com">// The esp has data so display its output to the serial window</span><span class="pln">
+</span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">();</span><span class="pln"> </span><span class="com">// read the next character.</span><span class="pln">
+response</span><span class="pun">+=</span><span class="pln">c</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pun">(</span><span class="pln">debug</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+</span><span class="typ">Serial</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">return</span><span class="pln"> response</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<h2>Control Servo</h2>
+<p>I changed the code to control a servo by passing in servo position in the URL request.</p>
+<p>The problem with Arduino Software Serial library is that&nbsp;the servo library uses the arduino’s Timer 1. The software serial library disables interrupts during transmit or receive operations which then prevent the timer interruts for the servo library triggering.</p>
+<p>I had to change my board design to use Hardware Serial.</p>
+<p><iframe width="630" height="354" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/bt56-ROpv6o(1).html" frameborder="0" allowfullscreen=""></iframe></p>
+<p>The Code</p>
+<pre class="prettyprint prettyprinted" style=""><span class="com">#define</span><span class="pln"> DEBUG </span><span class="kwd">false</span><span class="pln">
+ 
+
+
+</span><span class="com">#include</span><span class="pln">  
+</span><span class="typ">Servo</span><span class="pln"> servoBase1</span><span class="pun">;</span><span class="pln">  </span><span class="com">// create servo object to control a servo </span><span class="pln">
+</span><span class="typ">Servo</span><span class="pln"> servoBase2</span><span class="pun">;</span><span class="pln">  </span><span class="com">// create servo object to control a servo </span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> pre_pos </span><span class="pun">=</span><span class="pln"> </span><span class="lit">90</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> pos </span><span class="pun">=</span><span class="pln"> </span><span class="lit">90</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> serAng</span><span class="pun">=</span><span class="lit">90</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">void</span><span class="pln"> setup</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+  </span><span class="typ">Serial1</span><span class="pun">.</span><span class="kwd">begin</span><span class="pun">(</span><span class="lit">9600</span><span class="pun">);</span><span class="pln">  
+  
+  </span><span class="com">//pinMode(13,OUTPUT);</span><span class="pln">
+  </span><span class="com">//digitalWrite(13,LOW);</span><span class="pln">
+   
+  sendData</span><span class="pun">(</span><span class="str">"AT+RST\r\n"</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// reset module</span><span class="pln">
+  sendData</span><span class="pun">(</span><span class="str">"AT+CWMODE=2\r\n"</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// configure as access point</span><span class="pln">
+  sendData</span><span class="pun">(</span><span class="str">"AT+CIFSR\r\n"</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get ip address</span><span class="pln">
+  sendData</span><span class="pun">(</span><span class="str">"AT+CIPMUX=1\r\n"</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// configure for multiple connections</span><span class="pln">
+  sendData</span><span class="pun">(</span><span class="str">"AT+CIPSERVER=1,80\r\n"</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// turn on server on port 80</span><span class="pln">
+  
+           delay</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+
+  servoBase1</span><span class="pun">.</span><span class="pln">attach</span><span class="pun">(</span><span class="pln">A6</span><span class="pun">);</span><span class="pln">
+  servoBase2</span><span class="pun">.</span><span class="pln">attach</span><span class="pun">(</span><span class="pln">A7</span><span class="pun">);</span><span class="pln">
+           delay</span><span class="pun">(</span><span class="lit">100</span><span class="pun">);</span><span class="pln">
+         
+ servoBase1</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="lit">90</span><span class="pun">);</span><span class="pln"> 
+ servoBase2</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="lit">90</span><span class="pun">);</span><span class="pln">           
+              
+              
+</span><span class="pun">}</span><span class="pln">
+ 
+</span><span class="kwd">void</span><span class="pln"> loop</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">available</span><span class="pun">())</span><span class="pln"> </span><span class="com">// check if the esp is sending a message </span><span class="pln">
+  </span><span class="pun">{</span><span class="pln">
+ 
+    
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">"+IPD,"</span><span class="pun">))</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+     delay</span><span class="pun">(</span><span class="lit">200</span><span class="pun">);</span><span class="pln"> </span><span class="com">// wait for the serial buffer to fill up (read all the serial data)</span><span class="pln">
+     </span><span class="com">// get the connection id so that we can then disconnect</span><span class="pln">
+     </span><span class="kwd">int</span><span class="pln"> connectionId </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">;</span><span class="pln"> </span><span class="com">// subtract 48 because the read() function returns </span><span class="pln">
+                                           </span><span class="com">// the ASCII decimal value and 0 (the first decimal number) starts at 48</span><span class="pln">
+  
+      </span><span class="com">// on your browser type http://192.168.4.1/?s=090</span><span class="pln">
+      
+     </span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">find</span><span class="pun">(</span><span class="str">"s="</span><span class="pun">);</span><span class="pln"> </span><span class="com">// advance cursor to "pin="</span><span class="pln">
+
+     </span><span class="com">// get 3 digits </span><span class="pln">
+     serAng </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">)*</span><span class="lit">100</span><span class="pun">;</span><span class="pln"> </span><span class="com">// </span><span class="pln">
+     serAng </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">)*</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> </span><span class="com">// get first number i.e. if the pin 13 then the 1st number is 1, then multiply to get 10</span><span class="pln">
+     serAng </span><span class="pun">+=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">()-</span><span class="lit">48</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get second number, i.e. if the pin number is 13 then the 2nd number is 3, then add to the first number</span><span class="pln">
+     
+     </span><span class="com">//digitalWrite(serAng, !digitalRead(serAng)); // toggle pin    </span><span class="pln">
+        </span><span class="com">// servoBase1.write(serAng); </span><span class="pln">
+
+     
+     </span><span class="com">// generate web page</span><span class="pln">
+     </span><span class="typ">String</span><span class="pln"> webpage </span><span class="pun">=</span><span class="pln"> </span><span class="typ">String</span><span class="pun">(</span><span class="pln">serAng</span><span class="pun">);</span><span class="pln">
+     </span><span class="typ">String</span><span class="pln"> cipSend </span><span class="pun">=</span><span class="pln"> </span><span class="str">"AT+CIPSEND="</span><span class="pun">;</span><span class="pln">
+     cipSend </span><span class="pun">+=</span><span class="pln"> connectionId</span><span class="pun">;</span><span class="pln">
+     cipSend </span><span class="pun">+=</span><span class="pln"> </span><span class="str">","</span><span class="pun">;</span><span class="pln">
+     cipSend </span><span class="pun">+=</span><span class="pln">webpage</span><span class="pun">.</span><span class="pln">length</span><span class="pun">();</span><span class="pln">
+     cipSend </span><span class="pun">+=</span><span class="str">"\r\n"</span><span class="pun">;</span><span class="pln">
+     sendData</span><span class="pun">(</span><span class="pln">cipSend</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln">
+     delay</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">
+     sendData</span><span class="pun">(</span><span class="pln">webpage</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln">
+     
+     </span><span class="com">// make close command</span><span class="pln">
+     </span><span class="typ">String</span><span class="pln"> closeCommand </span><span class="pun">=</span><span class="pln"> </span><span class="str">"AT+CIPCLOSE="</span><span class="pun">;</span><span class="pln"> 
+     closeCommand</span><span class="pun">+=</span><span class="pln">connectionId</span><span class="pun">;</span><span class="pln"> </span><span class="com">// append connection id</span><span class="pln">
+     closeCommand</span><span class="pun">+=</span><span class="str">"\r\n"</span><span class="pun">;</span><span class="pln">
+
+     sendData</span><span class="pun">(</span><span class="pln">closeCommand</span><span class="pun">,</span><span class="lit">500</span><span class="pun">,</span><span class="pln">DEBUG</span><span class="pun">);</span><span class="pln"> </span><span class="com">// close connection</span><span class="pln">
+     
+              
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+        
+        
+        
+       
+  
+         </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">pre_pos</span><span class="pun">&lt;</span><span class="pln">serAng</span><span class="pun">){</span><span class="pln">
+                 </span><span class="kwd">for</span><span class="pun">(</span><span class="pln">pos </span><span class="pun">=</span><span class="pln"> pre_pos</span><span class="pun">;</span><span class="pln"> pos </span><span class="pun">&lt;=</span><span class="pln"> serAng</span><span class="pun">;</span><span class="pln"> pos </span><span class="pun">+=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="com">// goes from 0 degrees to 180 degrees                    {                                  // in steps of 1 degree                      servoBase1.write(180-pos);                      servoBase2.write(pos);                     delay(20);                       // waits 15ms for the servo to reach the position                    }                      }          else {               for(pos = pre_pos; pos&gt;=serAng; pos-=1)     // goes from 180 degrees to 0 degrees </span><span class="pln">
+              </span><span class="pun">{</span><span class="pln">                                
+                servoBase1</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="lit">180</span><span class="pun">-</span><span class="pln">pos</span><span class="pun">);</span><span class="pln"> 
+                servoBase2</span><span class="pun">.</span><span class="pln">write</span><span class="pun">(</span><span class="pln">pos</span><span class="pun">);</span><span class="pln">
+                delay</span><span class="pun">(</span><span class="lit">20</span><span class="pun">);</span><span class="pln">   
+              </span><span class="pun">}</span><span class="pln"> 
+         </span><span class="pun">}</span><span class="pln">
+        
+         
+          pre_pos</span><span class="pun">=</span><span class="pln">serAng</span><span class="pun">;</span><span class="pln">
+                
+              
+
+        
+</span><span class="pun">}</span><span class="pln">
+ 
+</span><span class="com">/*
+* Name: sendData
+* Description: Function used to send data to ESP8266.
+* Params: command - the data/command to send; timeout - the time to wait for a response; debug - print to Serial window?(true = yes, false = no)
+* Returns: The response from the esp8266 (if there is a reponse)
+*/</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> sendData</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> command</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">const</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> timeout</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> debug</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">String</span><span class="pln"> response </span><span class="pun">=</span><span class="pln"> </span><span class="str">""</span><span class="pun">;</span><span class="pln">
+    
+    </span><span class="typ">Serial1</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">command</span><span class="pun">);</span><span class="pln"> </span><span class="com">// send the read character to the esp8266</span><span class="pln">
+    
+    </span><span class="kwd">long</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> time </span><span class="pun">=</span><span class="pln"> millis</span><span class="pun">();</span><span class="pln">
+    
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="pln"> </span><span class="pun">(</span><span class="pln">time</span><span class="pun">+</span><span class="pln">timeout</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> millis</span><span class="pun">())</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">while</span><span class="pun">(</span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">available</span><span class="pun">())</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+        
+        </span><span class="com">// The esp has data so display its output to the serial window </span><span class="pln">
+        </span><span class="kwd">char</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Serial1</span><span class="pun">.</span><span class="pln">read</span><span class="pun">();</span><span class="pln"> </span><span class="com">// read the next character.</span><span class="pln">
+        response</span><span class="pun">+=</span><span class="pln">c</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">  
+    </span><span class="pun">}</span><span class="pln">
+    
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">debug</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Serial</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">response</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    
+    </span><span class="kwd">return</span><span class="pln"> response</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>&nbsp;</p>
+<h2></h2>
+<h2>External Reference</h2>
+<p><iframe width="630" height="354" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/YOTg44GGUNY.html" frameborder="0" allowfullscreen=""></iframe></p>
+<p>http://allaboutee.com/2014/12/30/esp8266-and-arduino-webserver/</p>
+<h2></h2>
+<h2>A-STAR / ARDUINO LEO’S Serial</h2>
+<p>There is now a second serial port. The primary port is built into the USB interface and the Tx/Rx LEDs are attached to it. The secondary port is located at pins D0 &amp; D1. This port does not have any LEDs attached.<br>
+To use the primary serial port, use the class Serial as usual. For the secondary port, a new serial class called Serial1 has been created. You use it the same way as the Serial class.</p>
+<p>&nbsp;</p>
+<p><img class="alignnone wp-image-300 size-full" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/esp03_atom-1.jpg" alt="esp03_atom-1" width="935" height="1020"></p>
+<p><img class="alignnone size-full wp-image-299" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/0J5275.1200.jpg" alt="0J5275.1200" width="495" height="358"><img class="alignnone size-large wp-image-301" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/0J5288.1200-1024x633.jpg" alt="0J5288.1200" width="630" height="389"></p>
+<p><img class="alignnone size-full wp-image-302" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/direct_esp8266_connection.jpg" alt="direct_esp8266_connection" width="911" height="463"> <img class="alignnone size-full wp-image-303" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/images.jpeg" alt="images" width="236" height="213"></p>
+<p>&nbsp;</p>
+<h2>Making A-Star ESP8266 Combo board</h2>
+<p>Since there aren’t any ESP8266 template for Eagle, I end up using inDesign&nbsp;to create my traces. It works much better than Eagle in my case.</p>
+<p>Important: 3V on board power worked for me for a little while, but for some reason it stops working. It starts to draw a lot of power cause the board to “brown” out. I later added a voltage regulator and it seems to be working okay.</p>
+<p><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/wp-content/uploads/2015/04/a-star-esp8266-hardware-serial-web.zip">Board Files</a>&nbsp;(inDesign + ESP)</p>
+<p>&nbsp;</p>
+<p><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/wp-content/uploads/2015/04/board.png"><img class="alignnone wp-image-335 size-large" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/board-1024x490.png" alt="board" width="630" height="301"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>In this New version, I added voltage regulator, the A-start internal 3V voltage regulator sometimes isn’t enough and cause the board to brown out.</p>
+<p><img class="alignnone wp-image-364 size-full" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/Untitled-1.jpg" alt="Untitled-1" width="1000" height="816"></p>
+<p>&nbsp;</p>
+<p><img class="alignnone size-full wp-image-327" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/DSC02074.jpg" alt="DSC02074" width="1000" height="563"><img class="alignnone size-full wp-image-328" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/DSC02077.jpg" alt="DSC02077" width="800" height="628"></p>
+<p>&nbsp;</p>
+<h2>Web Control Interface</h2>
+<p>I wrote a quick and dirty web interface to control the robot. The idea is that eventually I can control all parts of the robot with Wifi. I am still not sure if I will be using ESP 8266 for my final project but some kind of wireless communication is required.</p>
+<p><img class="alignnone wp-image-340 size-full" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/Screen-Shot-2015-04-26-at-7.53.58-PM.png" alt="Screen Shot 2015-04-26 at 7.53.58 PM" width="854" height="986"></p>
+<p><a href="http://fab.cba.mit.edu/classes/865.15/people/dan.chen/wp-content/uploads/2015/04/Visual_Controller.zip">Visual_Controller</a></p>
+<h2></h2>
+<p><iframe width="630" height="354" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/bt56-ROpv6o(2).html" frameborder="0" allowfullscreen=""></iframe></p>
+<p>&nbsp;</p>
+ 
+	<div class="pagelink"></div>                
+	 <div class="posttags"></div>
+                <div class="clear"></div>
+				 
+
+                </div>
+          
+       </div>
+       
+		
+
+
+
+
+
+     
+</div><!-- // close wrap div -->   
+
+
+
+
+
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/masonry.min.js.download"></script>
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/jquery.masonry.min.js.download"></script>
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/functions.js.download"></script>
+<script type="text/javascript" src="./Wireless Communication with ESP8266 _ How to Make Something that Makes (almost) Anything_files/mobile-nav.min.js.download"></script>
+	
+    
+    
+
+    
+
+
+
+
+
+<span style="border-radius: 3px; text-indent: 20px; width: auto; padding: 0px 4px 0px 0px; text-align: center; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 11px; line-height: 20px; font-family: &quot;Helvetica Neue&quot;, Helvetica, sans-serif; color: rgb(255, 255, 255); background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; -webkit-font-smoothing: antialiased;">Save</span><span style="width: 24px; height: 24px; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4); position: absolute; opacity: 1; z-index: 8675309; display: none; cursor: pointer; border: none; border-radius: 12px;"></span></body></html>

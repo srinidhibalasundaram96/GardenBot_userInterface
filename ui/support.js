@@ -1,3 +1,4 @@
+var http = require('http');
 // function validate(){
 //     var userName = document.getElementById('userName').value;
 //     var password = document.getElementById('password').value;
@@ -149,3 +150,12 @@ function getStatus()
     xhttp.open("GET", "http://localhost:8081/statusData", true);
     xhttp.send();
 };
+// function contactServer()
+// {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//     }};
+//     xhttp.open("GET", "http://192.168.4.1:80/statusData", true);
+//     xhttp.send();
+// };
