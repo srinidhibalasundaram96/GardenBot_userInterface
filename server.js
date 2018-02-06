@@ -163,12 +163,12 @@ app.post('/gardenGrids', function(req,res){
 app.post('/waterschedule', function(req,res){
   var mode = req.body.mode;
   var Mmode = req.body.Mmode;
-  var interval1 = req.body.interval1;
-  var interval2 = req.body.interval2;
-  var interval3 = req.body.interval3;
-  var eventTime1 = req.body.eventTime1/30;
-  var eventTime2 = req.body.eventTime2/30;
-  var eventTime3 = req.body.eventTime3/30;
+  // var interval1 = req.body.interval1;
+  // var interval2 = req.body.interval2;
+  // var interval3 = req.body.interval3;
+  // var eventTime1 = req.body.eventTime1/30;
+  // var eventTime2 = req.body.eventTime2/30;
+  // var eventTime3 = req.body.eventTime3/30;
   var Cinterval = req.body.Cinterval;
   var CeventTime = req.body.CeventTime/30;
   var moistureLevel = (req.body.moistureLevel == '15%')*1 + (req.body.moistureLevel == '20%')*2 +(req.body.moistureLevel == '25%')*3 + (req.body.moistureLevel == '30%')*4 + (req.body.moistureLevel == '35%')*5;
@@ -186,12 +186,12 @@ if(mode == 'C'){
     response.getBody();
 });
 }
-if(mode == 'I'){
-  requestify.get('http://192.168.4.1:80/'+'!1'+G1+G1+G3+G4+G5+G6+G7+G8+G9+G10+G11+G12+mode+interval1+eventTime1+interval2+eventTime2+interval3+eventTime3+'-').then(function(response) {
-    // Get the response body 
-    response.getBody();
-});
-}
+// if(mode == 'I'){
+//   requestify.get('http://192.168.4.1:80/'+'!1'+G1+G1+G3+G4+G5+G6+G7+G8+G9+G10+G11+G12+mode+interval1+eventTime1+interval2+eventTime2+interval3+eventTime3+'-').then(function(response) {
+//     // Get the response body 
+//     response.getBody();
+// });
+// }
 res.sendFile(path.join(__dirname,'ui','waterSchedule.html'));
 // request(options,function(error, response, body) {
     
@@ -218,16 +218,24 @@ res.sendFile(path.join(__dirname,'ui','waterSchedule.html'));
 //   console.log(body);
 // });
  });
-app.get('/statusData',function(req,res){
-  var statusNow={
-    "temp" : 56,
-    "humd" : 20,
-    "soilM": 80,
-    "Wlevel": 80,
-    // "upTime": "2000-08-05"
-  };
-  console.log("request for status");
-  res.send(JSON.stringify(statusNow));
-});
-
-
+ var temp=0,humd=0,soilM=0,Wlevel=0;
+ 
+ app.get('/updateStatus',function(req,res){
+   temp = req.query.temp;
+   humd = req.query.humd;
+   soilM= req.query.soilM;
+   Wlevel= req.query.Wlevel;
+   res.end();
+  });
+  
+  app.get('/statusData',function(req,res){
+    var statusNow={
+      "temp" : temp,
+      "humd" : humd,
+      "soilM": soilM,
+      "Wlevel": Wlevel,
+      // "upTime": "2000-08-05"
+    };
+    console.log("request for status");
+    res.send(JSON.stringify(statusNow));
+  });
